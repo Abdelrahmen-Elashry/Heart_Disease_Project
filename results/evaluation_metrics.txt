@@ -1,1 +1,45 @@
+Heart Disease Prediction Project
+--------------------------------
+Dataset: UCI Machine Learning Repository (Heart Disease Dataset)
+Features used: 13 original features + one-hot encoded categorical features
+Final feature count: 18
 
+Models Evaluated:
+1. Logistic Regression
+2. Decision Tree
+3. Random Forest
+4. Support Vector Machine (SVM)
+
+Best Model: Random Forest Classifier
+Parameters:
+    n_estimators = 100
+    max_depth = 8
+    min_samples_split = 2
+    min_samples_leaf = 2
+    max_features = "log2"
+    bootstrap = False
+    random_state = 42
+
+Evaluation Metrics (Test Set):
+------------------------------------------------------------
+Model                Accuracy   Precision   Recall   F1-Score   AUC
+------------------------------------------------------------
+Logistic Regression    0.90       0.87       0.93     0.90      0.96
+Decision Tree          0.85       0.85       0.82     0.84      0.88
+Random Forest          0.93       0.90       0.96     0.93      0.96
+SVM                    0.92       0.87       0.96     0.92      0.93
+------------------------------------------------------------
+
+Confusion Matrix (Random Forest):
+                 Predicted Negative   Predicted Positive
+Actual Negative        30                 3
+Actual Positive        1                 27
+
+Notes:
+- Random Forest achieved the best overall performance across Accuracy, Recall, and F1-score.
+- Logistic Regression also performed strongly and is easier to interpret.
+- SVM delivered high recall (useful for minimizing false negatives).
+- Decision Tree had the weakest performance, but remains interpretable.
+- Nominal features were encoded with OneHotEncoder.
+- Scaling applied only for Logistic Regression and SVM (not needed for tree-based models).
+- A pipeline (preprocessing + model) was saved for reproducibility.
