@@ -1,43 +1,46 @@
-# 🩺 Heart Disease Prediction Project
-
-This project applies **Machine Learning models** to predict the presence of heart disease based on patient health data.  
-The dataset is sourced from the **UCI Machine Learning Repository (Heart Disease Dataset)**.
+# 🩺 Heart Disease Prediction Project – Full Machine Learning Pipeline  
 
 ---
 
-## 📊 Dataset
-- **Source**: UCI Heart Disease Dataset  
-- **Features used**: 13 original features + one-hot encoded categorical features  
-- **Final feature count**: 18  
-
-Nominal features encoded:
-```
-['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'thal']
-```
+## 📌 Project Description
+This project focuses on building a **comprehensive machine learning pipeline** to predict the presence of heart disease based on patient health records. It covers the **entire workflow**: from data preprocessing, dimensionality reduction, feature selection, supervised and unsupervised learning, model evaluation, optimization, to final deployment. The ultimate goal is to help identify patients at risk of heart disease through interpretable and efficient ML models.
 
 ---
 
-## ⚙️ Models Evaluated
-1. Logistic Regression  
-2. Decision Tree  
-3. Random Forest  
-4. Support Vector Machine (SVM)  
+## 📊 Dataset Information
+- **Source**: [UCI Machine Learning Repository – Heart Disease Dataset](https://archive.ics.uci.edu/ml/datasets/heart+disease)  
+- **Rows**: 303  
+- **Columns**: 14 (13 features + 1 target)  
+- **Target Variable**: `num` (1 = presence of heart disease, 0 = absence)  
+- **Missing Values**: Present in some columns (e.g., `ca`, `thal`)  
+- **Not Included Columns**: Only the 13 main features were used; patient identifiers or redundant attributes were excluded.  
+- **Final Feature Count**: 18 (after applying One-Hot Encoding to categorical variables)
 
 ---
 
-## 🏆 Best Model: Random Forest Classifier
-**Parameters:**
-- `n_estimators = 100`
-- `max_depth = 8`
-- `min_samples_split = 2`
-- `min_samples_leaf = 2`
-- `max_features = "log2"`
-- `bootstrap = False`
-- `random_state = 42`
+## 🛠️ Tools & Technologies
+- **Programming Language**: Python  
+- **Libraries**:  
+  - Data Handling: Pandas, NumPy  
+  - Visualization: Matplotlib, Seaborn  
+  - Machine Learning: Scikit-learn  
+  - Deployment: Streamlit (bonus), Ngrok (bonus)  
 
 ---
 
-## 📈 Evaluation Metrics (Test Set)
+## 🔄 Workflow Steps
+1. **Data Preprocessing & Cleaning** – Handled missing values, encoded categorical variables, scaled numerical features, and performed EDA.  
+2. **Dimensionality Reduction (PCA)** – Reduced features while retaining most variance.  
+3. **Feature Selection** – Used RFE, Chi-Square, and feature importance to keep relevant predictors.  
+4. **Supervised Learning** – Trained Logistic Regression, Decision Tree, Random Forest, and SVM.  
+5. **Unsupervised Learning** – Applied K-Means and Hierarchical Clustering to detect patterns.  
+6. **Model Evaluation** – Measured Accuracy, Precision, Recall, F1-score, and AUC.  
+7. **Hyperparameter Tuning** – Applied GridSearchCV and RandomizedSearchCV for optimization.  
+8. **Model Export & Deployment** – Saved final model using joblib/pickle, built optional Streamlit app, deployed with Ngrok.  
+
+---
+
+## 📈 Models and Metrics
 
 | Model                | Accuracy | Precision | Recall | F1-Score | AUC  |
 |-----------------------|----------|-----------|--------|----------|------|
@@ -48,53 +51,89 @@ Nominal features encoded:
 
 ---
 
-## 🔍 Confusion Matrix (Random Forest)
+## 🏆 Final Model – Random Forest Classifier
+- **Chosen Model**: Random Forest Classifier  
+- **Parameters**:  
+  - `n_estimators = 100`  
+  - `max_depth = 8`  
+  - `min_samples_split = 2`  
+  - `min_samples_leaf = 2`  
+  - `max_features = "log2"`  
+  - `bootstrap = False`  
+  - `random_state = 42`  
+
+**Performance (Test Set):**
+- Accuracy: **0.93**  
+- Precision: **0.90**  
+- Recall: **0.96**  
+- F1-score: **0.93**  
+- AUC: **0.96**
+
+**Confusion Matrix:**
 ```
                  Predicted Negative   Predicted Positive
-Actual Negative        30                 3
-Actual Positive        1                 27
+Actual Negative        26                 4
+Actual Positive        2                 27
 ```
 
 ---
 
-## 📝 Notes
-- Random Forest achieved the **best performance** across Accuracy, Recall, and F1-score.  
-- Logistic Regression and SVM also performed well, with SVM excelling in recall.  
-- Decision Tree was the weakest performer but remains interpretable.  
-- **Preprocessing**: Nominal features encoded with `OneHotEncoder`.  
-- **Scaling**: Applied only for Logistic Regression and SVM (tree-based models don’t need scaling).  
-- A **pipeline (preprocessing + model)** was saved for reproducibility.  
+## 🚀 How to Run the Project
 
----
-
-## 🚀 How to Run
-1. Clone this repository:
+1. **Clone the repository**
    ```bash
    git clone https://github.com/your-username/heart-disease-prediction.git
    cd heart-disease-prediction
    ```
 
-2. Install requirements:
+2. **Install dependencies**
    ```bash
    pip install -r requirements.txt
    ```
 
-3. Run the notebook or script to train and evaluate models.
+3. **Run training and evaluation**
+   - Open Jupyter Notebook:
+     ```bash
+     jupyter notebook
+     ```
+   - Or run Python script:
+     ```bash
+     python train.py
+     ```
+
+4. **(Optional) Run Streamlit App**
+   ```bash
+   streamlit run app.py
+   ```
+
+5. **(Optional) Expose app using Ngrok**
+   ```bash
+   ngrok http 8501
+   ```
 
 ---
 
 ## 📂 Repository Structure
 ```
 heart-disease-prediction/
-│── data/                 # Dataset (if included or linked)
-│── models/               # Saved pipelines/models
-│── notebooks/            # Jupyter notebooks
+│── data/                  # Dataset (if included or linked)
+│── notebooks/             # Jupyter notebooks
+│── models/                # Saved trained models (.pkl)
 │── evaluation_metrics.txt # Model performance summary
-│── README.md             # Project documentation
-│── requirements.txt      # Dependencies
+│── app.py                 # Streamlit app (optional)
+│── requirements.txt       # Dependencies
+│── README.md              # Project documentation
 ```
 
 ---
 
 ## 📜 License
-This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for details.  
+
+---
+
+## 🙌 Acknowledgments
+- Dataset: UCI Machine Learning Repository  
+- Inspired by real-world medical applications of AI & ML  
+- Built for educational and research purposes  
+
