@@ -11,10 +11,9 @@ This project focuses on building a **comprehensive machine learning pipeline** t
 - **Source**: [UCI Machine Learning Repository – Heart Disease Dataset](https://archive.ics.uci.edu/ml/datasets/heart+disease)  
 - **Rows**: 303  
 - **Columns**: 14 (13 features + 1 target)  
-- **Target Variable**: `num` (1 = presence of heart disease, 0 = absence)  
-- **Missing Values**: Present in some columns (e.g., `ca`, `thal`)  
-- **Not Included Columns**: Only the 13 main features were used; patient identifiers or redundant attributes were excluded.  
-- **Final Feature Count**: 18 (after applying One-Hot Encoding to categorical variables)
+- **Target Variable**: `num`
+- **Missing Values**: Present in some columns (`ca`, `thal`)  
+- **Not Included Columns**: Only the 13 main features were used.
 
 ---
 
@@ -22,9 +21,8 @@ This project focuses on building a **comprehensive machine learning pipeline** t
 - **Programming Language**: Python  
 - **Libraries**:  
   - Data Handling: Pandas, NumPy  
-  - Visualization: Matplotlib, Seaborn  
+  - Visualization: Matplotlib, Seaborn, plotly  
   - Machine Learning: Scikit-learn  
-  - Deployment: Streamlit (bonus), Ngrok (bonus)  
 
 ---
 
@@ -36,7 +34,7 @@ This project focuses on building a **comprehensive machine learning pipeline** t
 5. **Unsupervised Learning** – Applied K-Means and Hierarchical Clustering to detect patterns.  
 6. **Model Evaluation** – Measured Accuracy, Precision, Recall, F1-score, and AUC.  
 7. **Hyperparameter Tuning** – Applied GridSearchCV and RandomizedSearchCV for optimization.  
-8. **Model Export & Deployment** – Saved final model using joblib/pickle, built optional Streamlit app, deployed with Ngrok.  
+8. **Model Export & Deployment** – Saved final model using pickle.
 
 ---
 
@@ -72,8 +70,8 @@ This project focuses on building a **comprehensive machine learning pipeline** t
 **Confusion Matrix:**
 ```
                  Predicted Negative   Predicted Positive
-Actual Negative        26                 4
-Actual Positive        2                 27
+Actual Negative        30                 3
+Actual Positive        1                 27
 ```
 
 ---
@@ -92,48 +90,9 @@ Actual Positive        2                 27
    ```
 
 3. **Run training and evaluation**
-   - Open Jupyter Notebook:
-     ```bash
-     jupyter notebook
-     ```
-   - Or run Python script:
-     ```bash
-     python train.py
-     ```
-
-4. **(Optional) Run Streamlit App**
-   ```bash
-   streamlit run app.py
-   ```
-
-5. **(Optional) Expose app using Ngrok**
-   ```bash
-   ngrok http 8501
-   ```
-
----
-
-## 📂 Repository Structure
-```
-heart-disease-prediction/
-│── data/                  # Dataset (if included or linked)
-│── notebooks/             # Jupyter notebooks
-│── models/                # Saved trained models (.pkl)
-│── evaluation_metrics.txt # Model performance summary
-│── app.py                 # Streamlit app (optional)
-│── requirements.txt       # Dependencies
-│── README.md              # Project documentation
-```
+   - Open Jupyter Notebook and click run all.
 
 ---
 
 ## 📜 License
 This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for details.  
-
----
-
-## 🙌 Acknowledgments
-- Dataset: UCI Machine Learning Repository  
-- Inspired by real-world medical applications of AI & ML  
-- Built for educational and research purposes  
-
