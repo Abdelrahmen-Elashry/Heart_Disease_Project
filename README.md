@@ -30,7 +30,7 @@ This project focuses on building a **comprehensive machine learning pipeline** t
 1. **Data Preprocessing & Cleaning** – Handled missing values, encoded categorical variables, scaled numerical features, and performed EDA.  
 2. **Dimensionality Reduction (PCA)** – Reduced features while retaining most variance.  
 3. **Feature Selection** – Used RFE, Chi-Square, and feature importance to keep relevant predictors.  
-4. **Supervised Learning** – Trained Logistic Regression, Decision Tree, Random Forest, and SVM.  
+4. **Supervised Learning** – Trained Logistic Regression, Decision Tree, Random Forest, and SVM. 
 5. **Unsupervised Learning** – Applied K-Means and Hierarchical Clustering to detect patterns.  
 6. **Model Evaluation** – Measured Accuracy, Precision, Recall, F1-score, and AUC.  
 7. **Hyperparameter Tuning** – Applied GridSearchCV and RandomizedSearchCV for optimization.  
